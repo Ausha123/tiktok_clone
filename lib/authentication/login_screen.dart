@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tiktok_clone/widgets/input_text_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -9,6 +10,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailTextEditingController = TextEditingController();
+  TextEditingController passwordTextEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +43,36 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(
                 height: 30,
+              ),
+
+              //email input
+
+              Container(
+                width: MediaQuery.of(context).size.width,
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                child: InputTextWidget(
+                  textEditingController: emailTextEditingController,
+                  labelString: 'Email',
+                  iconData: Icons.email_outlined,
+                  isObscure: false,
+                ),
+              ),
+
+              const SizedBox(
+                height: 25,
+              ),
+
+              //password input
+
+              Container(
+                width: MediaQuery.of(context).size.width,
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                child: InputTextWidget(
+                  textEditingController: passwordTextEditingController,
+                  labelString: 'Password',
+                  iconData: Icons.lock_outlined,
+                  isObscure: true,
+                ),
               ),
             ],
           ),
